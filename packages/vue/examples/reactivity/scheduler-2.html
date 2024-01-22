@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="../../dist/vue.js"></script>
+</head>
+
+<body>
+  <div id="app"></div>
+</body>
+<script>
+  const { reactive, effect, queuePreFlushCb } = Vue
+
+  const obj = reactive({
+    count: 1
+  })
+
+  // 调用 effect 方法
+  effect(() => {
+    console.log(obj.count)
+  }, {
+    scheduler() {
+      queuePreFlushCb(() => { console.log(obj.count) })
+    }
+  })
+// 调度器的本质就是：控制副作用函数的执行时机、次数和方式
+// 将传入的函数放进到Promise形成的异步任务中，等待同步任务执行完毕再进行执行，减少视图的频繁更新
+  obj.count = 2
+  obj.count = 3
+
+</script>
+
+</html>
