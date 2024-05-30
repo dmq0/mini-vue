@@ -1,6 +1,5 @@
 import { isArray, isObject } from '@vue/shared'
 import { createVNode, isVNode, VNode } from './vnode'
-
 export function h(type: any, propsOrChildren?: any, children?: any): VNode {
 	// 获取用户传递的参数数量
 	const l = arguments.length

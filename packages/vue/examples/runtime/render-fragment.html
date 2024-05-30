@@ -14,11 +14,9 @@
 </body>
 <script>
   const { h, render, Fragment } = Vue
-
   const vnode = h(Fragment, 'hello world')
   // 挂载
   render(vnode, document.querySelector('#app'))
-
   setTimeout(() => {
     const vnode2 = h(Fragment, '你好，世界')
     // 挂载

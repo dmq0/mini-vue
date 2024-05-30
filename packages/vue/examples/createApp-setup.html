@@ -14,25 +14,39 @@
 </body>
 
 <script>
-  const { createApp, reactive, h } = Vue
-  // 构建组件实例
+  const { createApp,reactive,h } = Vue;
   const APP = {
-    setup() {
+    setup(){
       const obj = reactive({
-        name: '张三'
+        name:"张三"
       })
-
       setTimeout(() => {
-        obj.name = '李四'
+        this.name = "里斯"
       }, 2000);
-
-      return () => h('div', obj.name)
+      return ()=> h('div',obj.name);
+    },
+    // 如果有setup函数，就会执行setup函数，返回虚拟节点，不会执行后面的内容
+    template: `
+<div>
+  hello world,
+    <h1 v-if="isShow">
+    {{ message }}
+  </h1>
+</div>
+`,
+    data() {
+      return {
+        message: '你好,世界',
+        isShow: false
+      }
+    },
+    created() {
+      setTimeout(() => {
+        this.isShow = true
+      }, 2000)
     }
   }
-
-  // 通过 createAPP 标记挂载组件
-  const app = createApp(APP)
-  // 挂载位置
+  const app = createApp(APP);
   app.mount('#app')
 </script>
 

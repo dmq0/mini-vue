@@ -14,17 +14,13 @@
 </body>
 <script>
   const { reactive, watch } = Vue
-
   const obj = reactive({
     name: '张三'
   })
-
-
   watch(obj, (value, oldValue) => {
     console.log('watch 监听被触发');
     console.log('value', value);
   })
-
   setTimeout(() => {
     obj.name = '李四'
   }, 2000);

@@ -11,15 +11,14 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/lgd8981289/vue-next-mini.git"
+		"url": "https://github.com/dmq0/mini-vue.git"
 	},
 	"keywords": [],
 	"author": "",
 	"license": "ISC",
 	"bugs": {
-		"url": "https://github.com/lgd8981289/vue-next-mini/issues"
 	},
-	"homepage": "https://github.com/lgd8981289/vue-next-mini#readme",
+	"homepage": "https://github.com/dmq0/mini-vue.git",
 	"devDependencies": {
 		"@rollup/plugin-commonjs": "^22.0.1",
 		"@rollup/plugin-node-resolve": "^13.3.0",

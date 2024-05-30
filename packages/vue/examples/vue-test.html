@@ -12,24 +12,36 @@
 <body>
   <div id="app"></div>
 </body>
+
 <script>
-  const { createApp } = Vue
+  const { createApp,isObject,isFunction } = Vue
+  console.log('测试');
+  console.log(isFunction());
+  // 构建组件实例
   const APP = {
-    template: `<div>hello world, <h1 v-if="isShow">{{ msg }}</h1></div>`,
+    template: `
+<div>
+  hello world,
+    <h1 v-if="isShow">
+    {{ message }}
+  </h1>
+</div>
+`,
     data() {
       return {
-        msg: '你好，世界',
+        message: '你好,世界',
         isShow: false
       }
     },
     created() {
       setTimeout(() => {
         this.isShow = true
-      }, 2000);
+      }, 2000)
     }
   }
-
+  // 通过 createAPP 标记挂载组件
   const app = createApp(APP)
+  // 挂载位置
   app.mount('#app')
 </script>
 

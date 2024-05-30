@@ -14,11 +14,11 @@
 </body>
 <script>
   const { h, render, Text } = Vue
-
-  const vnode = h(Text, 'hello world')
-  // 挂载
+  console.log(Text,'vue内部的文本节点类型');
+  const vnode = h(Text, 'hello world');
+  console.log(vnode,'生成的虚拟dom节点');
+  // render函数进行挂载，将虚拟DOM挂载到对应的元素上
   render(vnode, document.querySelector('#app'))
-
   // 延迟两秒，生成新的 vnode，进行更新操作
   setTimeout(() => {
     const vnode2 = h(Text, '你好，世界')
